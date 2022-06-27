@@ -52,7 +52,7 @@
     position: relative;
     min-width: 310px;
     border-radius: 8px;
-    box-shadow: 0 0 20px 0px #000;
+    box-shadow: 0 0 20px 8px #d0d0d0;
     flex: 0 1 30%;
     &__inner {
       padding: 10px;
@@ -101,10 +101,10 @@
         &:after {
           content: '';
           position: absolute;
-          left: 0px;
-          right: 0px;
+          left: 0;
+          right: 0;
           height: 50%;
-          bottom: 0px;
+          bottom: 0;
           background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 100%);
           pointer-events: none;
         }

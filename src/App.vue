@@ -51,7 +51,6 @@ a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 
 html,body{
-  background: #282C34;
   height: 100%;
   width: 100%;
   line-height: 1;
