@@ -97,4 +97,13 @@ hr {
   margin: 0 auto;
 }
 
+.section {
+  padding: 10px 0 50px;
+}
+
+.title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
 </style>
