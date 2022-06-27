@@ -58,6 +58,12 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 
+hr {
+  height: 1px;
+  width: 100%;
+  background-color: black ;
+}
+
 /*STYLES*/
 
 .wrapper{

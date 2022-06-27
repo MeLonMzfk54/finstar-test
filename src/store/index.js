@@ -10,16 +10,19 @@ export default new Vuex.Store({
   },
   getters: {
     groupedLists: state => {
-      const map = state.lists.reduce((prev, current) => {
-        prev[current.userId] = prev[current.userId] || [];
-        prev[current.userId].push(current);
-        return prev;
-      }, {});
-      const result = [];
-      for (let key in map) {
-        result.push(map[key]);
+      if (state.lists.length) {
+        const map = state.lists.reduce((prev, current) => {
+          prev[current.userId] = prev[current.userId] || [];
+          prev[current.userId].push(current);
+          return prev;
+        }, {});
+        const result = [];
+        for (let key in map) {
+          result.push(map[key]);
+        }
+        return result;
       }
-      return result;
+      return []
     },
     loading: state => state.is_loading
   },
@@ -33,8 +36,8 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchLists({commit}) {
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos').then(resp => resp.json());
-      commit('SET_LISTS', response);
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos').then(resp => resp.json());
+        commit('SET_LISTS', response);
     }
   },
   modules: {

@@ -7,7 +7,7 @@
         </button>
         <LoaderComponent v-if="loading"/>
       </div>
-      <div>
+      <div class="main__lists">
         <ListComponent
             v-for="(list, index) in lists"
             :key="index"
@@ -36,7 +36,10 @@ export default {
       return this.$store.getters.groupedLists;
     },
     loading() {
-      return this.$store.getters.loading
+      return this.$store.getters.loading;
+    },
+    error() {
+      return this.$store.state.error;
     }
   },
   methods: {
@@ -52,12 +55,13 @@ export default {
 
 <style lang="scss" scoped>
   .main {
-    padding: 10px 0px;
+    padding: 10px 0;
     &__fetch {
       display: flex;
       align-items: center;
       gap: 10px;
       min-height: 50px;
+      margin-bottom: 10px;
     }
     &__button {
       padding: 10px;
@@ -65,6 +69,11 @@ export default {
       &:hover {
         transform: scale(1.05);
       }
+    }
+    &__lists {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
   }
 </style>
