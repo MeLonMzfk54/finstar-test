@@ -18,16 +18,14 @@ export default new Vuex.Store({
           return prev;
         }, {});
         const result = [];
-        console.log('map - ', map);
         for (let key in map) {
           result.push(map[key]);
         }
-        result.sort((a, b) => {
+        return result.sort((a, b) => {
           const first = a.reduce((res, item) => item.completed ? res + 1 : res, 0)
           const second = b.reduce((res, item) => item.completed ? res + 1 : res, 0)
           return first > second ? -1 : 1;
         })
-        return result;
       }
       return []
     },

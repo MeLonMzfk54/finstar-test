@@ -69,6 +69,11 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 
+.btn {
+  padding: 10px;
+  transition: .4s all ease;
+}
+
 hr {
   height: 1px;
   width: 100%;

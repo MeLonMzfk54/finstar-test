@@ -1,17 +1,20 @@
 <template>
   <div class="list">
-    <HeaderListComponent
-        :userId="userId"
-        :statistics="statistics"
-    />
-    <hr>
-    <div
-        class="list__item"
-        v-for="item in list"
-        :class="{ completed: item.completed }"
-        :key="item.id"
-    >
-      {{ item.title }}
+    <div class="list__inner" :class="{expand: isExpand}">
+      <HeaderListComponent
+          :userId="userId"
+          :statistics="statistics"
+      />
+      <hr>
+      <button class="list__button btn" @click="isExpand = !isExpand">{{ !isExpand ? 'Развернуть' : 'Свернуть' }}</button>
+      <div
+          class="list__item"
+          v-for="item in list"
+          :class="{ completed: item.completed }"
+          :key="item.id"
+      >
+        {{ item.title }}
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +26,9 @@
     name: 'ListComponent',
     props: ['list'],
     data() {
-      return {}
+      return {
+        isExpand: false,
+      }
     },
     computed: {
       userId() {
@@ -43,11 +48,14 @@
 
 <style lang="scss" scoped>
   .list {
+    position: relative;
     min-width: 310px;
-    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 0 20px 8px #d0d0d0;
     flex: 0 1 30%;
+    &__inner {
+      padding: 10px;
+    }
     &__item {
       margin: 10px 10px;
       position: relative;
@@ -74,6 +82,40 @@
           transform-origin: bottom left !important;
           transform: rotate(45deg);
         }
+      }
+    }
+    &__button {
+      border: 1px solid black;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      z-index: 100;
+      display: none;
+    }
+    @media(max-width: 669px) {
+      &__inner {
+        max-height: 250px;
+        overflow: hidden;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0px;
+          right: 0px;
+          height: 50%;
+          bottom: 0px;
+          background: linear-gradient(180deg, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 100%);
+          pointer-events: none;
+        }
+        &.expand {
+          &:after {
+            display: none;
+          }
+          max-height: 100%;
+        }
+      }
+      &__button {
+        display: block;
       }
     }
   }

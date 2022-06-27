@@ -2,7 +2,7 @@
   <div class="main">
     <div class="container">
       <div class="main__fetch">
-        <button :disabled="loading" class="main__button" @click="getLists">
+        <button :disabled="loading" class="main__button btn" @click="getLists">
           Загрузить данные
         </button>
         <LoaderComponent v-if="loading"/>
@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
   .main {
-    padding: 10px 0;
+    padding: 10px 0 50px;
     &__fetch {
       display: flex;
       align-items: center;
@@ -67,8 +67,6 @@ export default {
       margin-bottom: 10px;
     }
     &__button {
-      padding: 10px;
-      transition: .4s all ease;
       &:hover {
         transform: scale(1.05);
       }
@@ -78,6 +76,12 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+    }
+
+    @media(max-width:669px) {
+      &__lists {
+        gap: 50px;
+      }
     }
   }
 </style>
