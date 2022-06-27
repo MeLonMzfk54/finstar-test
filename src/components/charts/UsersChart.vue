@@ -71,7 +71,7 @@ import ApexCharts from 'vue-apexcharts'
           fill: {
             opacity: 1
           },
-          colors: ['#840600', '#0c6a00']
+          colors: ['#DB4437', '#4285F4']
         }
       }
     }
