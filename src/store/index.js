@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     lists: [],
+    is_loading: false,
   },
   getters: {
     groupedLists: state => {
@@ -19,11 +20,15 @@ export default new Vuex.Store({
         result.push(map[key]);
       }
       return result;
-    }
+    },
+    loading: state => state.is_loading
   },
   mutations: {
-    'SET_LISTS'(state, lists) {
+    'SET_LISTS' (state, lists) {
       state.lists = lists;
+    },
+    'SET_LOADING' (state, loading) {
+      state.is_loading = loading;
     }
   },
   actions: {
