@@ -13,7 +13,7 @@ import UsersChart from "@/components/charts/UsersChart";
 import FetchTodoComponent from "@/components/utils/FetchTodoComponent";
 
 export default {
-  name: "MainView",
+  name: "ChartView",
   data() {
     return {}
   },
