@@ -2,6 +2,7 @@
   <div id="app">
     <div class="wrapper">
       <ErrorMessageComponent/>
+      <HeaderComponent/>
       <router-view/>
     </div>
   </div>
@@ -9,10 +10,12 @@
 
 <script>
   import ErrorMessageComponent from "@/components/utils/ErrorMessageComponent";
+  import HeaderComponent from "@/components/HeaderComponent";
 
   export default {
     components: {
-      ErrorMessageComponent
+      ErrorMessageComponent,
+      HeaderComponent
     }
   }
 </script>
@@ -48,6 +51,7 @@ a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 
 html,body{
+  background: #282C34;
   height: 100%;
   width: 100%;
   line-height: 1;

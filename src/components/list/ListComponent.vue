@@ -48,10 +48,11 @@
 
 <style lang="scss" scoped>
   .list {
+    background: #fff;
     position: relative;
     min-width: 310px;
     border-radius: 8px;
-    box-shadow: 0 0 20px 8px #d0d0d0;
+    box-shadow: 0 0 20px 0px #000;
     flex: 0 1 30%;
     &__inner {
       padding: 10px;
