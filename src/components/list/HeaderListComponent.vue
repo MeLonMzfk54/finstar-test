@@ -2,7 +2,7 @@
   <div class="list__header header-list">
     <div class="header-list__inner">
       <div class="header-list__name">
-        User {{userId}}
+        Пользователь {{userId}}
       </div>
       <div class="header-list__statistics">
         <span class="header-list__completed header-list__stat"> {{ statistics.completed }}  </span>
