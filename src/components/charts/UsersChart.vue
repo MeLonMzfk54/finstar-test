@@ -42,7 +42,7 @@ import ApexCharts from 'vue-apexcharts'
           chart: {
             type: 'bar',
             height: 350,
-            tacked: true,
+            stacked: true,
           },
           responsive: [{
             breakpoint: 669,
