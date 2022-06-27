@@ -36,7 +36,7 @@
    }
    &__statistics {}
    &__completed {
-     color: lightgreen;
+     color: lawngreen;
    }
    &__uncompleted {
      color: red;

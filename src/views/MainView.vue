@@ -76,6 +76,7 @@ export default {
     &__lists {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
   }
