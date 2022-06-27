@@ -1,10 +1,21 @@
 <template>
   <div id="app">
     <div class="wrapper">
+      <ErrorMessageComponent/>
       <router-view/>
     </div>
   </div>
 </template>
+
+<script>
+  import ErrorMessageComponent from "@/components/utils/ErrorMessageComponent";
+
+  export default {
+    components: {
+      ErrorMessageComponent
+    }
+  }
+</script>
 
 <style lang="scss">
 /*ROBOTO FONT INCLUDE*/

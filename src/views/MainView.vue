@@ -46,6 +46,9 @@ export default {
     async getLists() {
       this.$store.commit('SET_LOADING', true);
       await this.$store.dispatch('fetchLists');
+      if (!this.lists.length) {
+        this.$store.commit('POST_ERROR', 'Не удалось получить списки');
+      }
       this.$store.commit('SET_LOADING', false);
     }
   }

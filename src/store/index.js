@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     lists: [],
     is_loading: false,
+    error: '',
   },
   getters: {
     groupedLists: state => {
@@ -24,7 +25,8 @@ export default new Vuex.Store({
       }
       return []
     },
-    loading: state => state.is_loading
+    loading: state => state.is_loading,
+    errorMessage: state => state.error
   },
   mutations: {
     'SET_LISTS' (state, lists) {
@@ -32,12 +34,19 @@ export default new Vuex.Store({
     },
     'SET_LOADING' (state, loading) {
       state.is_loading = loading;
+    },
+    'POST_ERROR' (state, error) {
+      state.error = error;
     }
   },
   actions: {
     async fetchLists({commit}) {
+      try {
         const response = await fetch('https://jsonplaceholder.typicode.com/todos').then(resp => resp.json());
         commit('SET_LISTS', response);
+      } catch (e) {
+        commit('SET_LISTS', []);
+      }
     }
   },
   modules: {
