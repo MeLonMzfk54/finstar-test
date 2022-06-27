@@ -8,7 +8,11 @@
         <LoaderComponent v-if="loading"/>
       </div>
       <div>
-        {{ lists }}
+        <ListComponent
+            v-for="(list, index) in lists"
+            :key="index"
+            :list="list"
+        />
       </div>
     </div>
   </div>
@@ -16,6 +20,7 @@
 
 <script>
 import LoaderComponent from '@/components/utils/LoaderComponent'
+import ListComponent from "@/components/list/ListComponent";
 
 export default {
   name: "MainView",
@@ -24,6 +29,7 @@ export default {
   },
   components: {
     LoaderComponent,
+    ListComponent
   },
   computed: {
     lists() {
